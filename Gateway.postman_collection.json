@@ -151,6 +151,126 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "http://localhost:8080/gateway/1/device",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"uid\": 11, \"status\": \"tesт11\"}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/gateway/1/device",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"gateway",
+						"1",
+						"device"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/gateway/",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"ip\":\"192.168.10.10\", \"uid\": 1, \"devices\": [{\"uid\": 1, \"status\":\"test1\"}, {\"uid\": 2, \"status\":\"test2\"}, {\"uid\": 3, \"status\":\"test3\"}, {\"uid\": 4, \"status\":\"test4\"}, {\"uid\": 5, \"status\":\"test5\"}, {\"uid\": 6, \"status\":\"test6\"}, {\"uid\": 7, \"status\":\"test7\"}, {\"uid\": 8, \"status\":\"test8\"}, {\"uid\": 9, \"status\":\"test9\"}, {\"uid\": 10, \"status\":\"test10\"}]}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/gateway/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"gateway",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/gateway/123/device/6",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"uid\": 6, \"status\":\"test6\"}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/gateway/1/device/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"gateway",
+						"1",
+						"device",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/gateway/1/device",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"uid\": 11, \"status\": \"test11\"}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/gateway/1/device",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"gateway",
+						"1",
+						"device"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
