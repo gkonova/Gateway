@@ -1,24 +1,28 @@
 package gateway;
 
-
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+@Entity
 public class Device {
-	
-//	a UID (number),
-//	vendor (string),
-//	date created,
-//	status - online/offline.
-	
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer uid;
-	
+
 	private String vendor;
-	
+
 	private Date dateCreated;
-	
+
 	private String status;
-	
-	private Integer relatedGatewayUid;
+
+	private Gateway gateway;
 
 	public Integer getUid() {
 		return uid;
@@ -43,8 +47,7 @@ public class Device {
 	public void setDateCreated(Date dateCreated) {
 		this.dateCreated = dateCreated;
 	}
-	
-	
+
 	public String getStatus() {
 		return status;
 	}
@@ -52,14 +55,15 @@ public class Device {
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	
-	
-	public Integer getRelatedGatewayUid() {
-		return relatedGatewayUid;
+
+	@ManyToOne
+    @JoinColumn(name = "related_gateway_uid")
+	public Gateway getGateway() {
+		return gateway;
 	}
 
-	public void setRelatedGatewayUid(Integer relatedGatewayUid) {
-		this.relatedGatewayUid = relatedGatewayUid;
+	public void setGateway(Gateway gateway) {
+		this.gateway = gateway;
 	}
-	
+
 }

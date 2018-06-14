@@ -1,16 +1,27 @@
 package gateway;
 
-import java.util.List;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
+@Entity
 
 public class Gateway {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer uid;
 
 	private String readableName;
 
 	private String ip;
 
-	private List<Device> devices;
+	private Set<Device> devices;
 
 	public Integer getUid() {
 		return uid;
@@ -36,11 +47,12 @@ public class Gateway {
 		this.ip = ip;
 	}
 
-	public List<Device> getDevices() {
+	@OneToMany(mappedBy = "gateway", cascade = CascadeType.ALL)
+	public Set<Device> getDevices() {
 		return devices;
 	}
 
-	public void setDevices(List<Device> devices) {
+	public void setDevices(Set<Device> devices) {
 		this.devices = devices;
 	}
 
@@ -48,6 +60,5 @@ public class Gateway {
 	public String toString() {
 		return "Gateway [uid=" + uid + ", readableName=" + readableName + ", ip=" + ip + ", devices=" + devices + "]";
 	}
-	
-	
+
 }
